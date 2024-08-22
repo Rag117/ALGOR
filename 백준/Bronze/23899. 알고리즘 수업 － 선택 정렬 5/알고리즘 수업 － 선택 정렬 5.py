@@ -1,12 +1,16 @@
-n = int(input())
-li = list(map(int, input().split()))
-match = list(map(int, input().split()))
+a = int(input())
+arr = list(map(int, input().split()))
+cmp = list(map(int, input().split()))
+real = 0
 
-for i in range(n - 1, 0, -1):
-    if li == match:
+for i in range(a-1, 0, -1):
+    if arr == cmp:
         break
-    idx = li.index(max(li[:i + 1]))
-    if idx != i:
-        li[idx], li[i] = li[i], li[idx]
-
-print(1 if li == match else 0)
+    real = arr.index(max(arr[:i+1]))
+    if real != i:
+        arr[i], arr[real] = arr[real], arr[i]       
+        
+if arr == cmp:
+    print(1)
+else:
+    print(0)
